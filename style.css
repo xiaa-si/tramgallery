@@ -1,0 +1,95 @@
+/* -------------------------------------------------
+   Simple, responsive gallery for tramgallery
+   No external frameworks – pure CSS
+   ------------------------------------------------- */
+
+/* Basic reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Font */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    background: #fafafa;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #e0e0e0;
+}
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Gallery layout – CSS Grid */
+.gallery {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Each item */
+.item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Sketch image */
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hover overlay – hidden by default */
+.item::after {
+    content: attr(data-desc);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show overlay on hover / focus */
+.item:hover::after,
+.item:focus::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}

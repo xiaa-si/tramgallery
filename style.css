@@ -140,7 +140,7 @@ header p {
     display: block;
 }
 
-/* Hover overlay – hidden by default */
+/* Hover overlay – kept for fallback, hidden on focus/hover via opacity */
 .item::after {
     content: attr(data-desc);
     position: absolute;
@@ -156,12 +156,26 @@ header p {
     transform: translateY(100%);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-/* Show overlay on hover / focus */
 .item:hover::after,
 .item:focus::after {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Tooltip card – shown via JS */
+.tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--overlay-bg);
+    color: var(--overlay-text);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    max-width: 200px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
 }
 
 /* Footer */

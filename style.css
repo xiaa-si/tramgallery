@@ -51,6 +51,21 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Skip link – visible on focus */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: -999px;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+}
+
 /* Header styling */
 header {
     text-align: center;
@@ -124,7 +139,8 @@ header p {
     box-shadow: 0 2px 6px var(--card-shadow);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
-.item:hover {
+.item:hover,
+.item:focus {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px var(--card-shadow);
 }
@@ -185,4 +201,18 @@ footer {
     font-size: 0.9rem;
     color: var(--footer-color);
     transition: color 0.3s ease;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header p {
+        font-size: 0.9rem;
+    }
+    .gallery {
+        padding: 1rem;
+        gap: 1rem;
+    }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple tram silhouette favicon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect x="2" y="8" width="20" height="8" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="6" cy="18" r="2" fill="currentColor"/>
+  <circle cx="18" cy="18" r="2" fill="currentColor"/>
+</svg>
